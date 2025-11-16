@@ -1,0 +1,62 @@
+<div class="modal-backdrop" (click)="onBackdropClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Детальна інформація про погоду</h2>
+      <button (click)="onClose()" class="close-btn">×</button>
+    </div>
+
+    <div class="modal-body" *ngIf="weather">
+      <div class="weather-header">
+        <div class="city-info">
+          <h3>{{ weather.location.name }}</h3>
+          <p class="region">{{ weather.location.region }}, {{ weather.location.country }}</p>
+          <p class="time">{{ formatDate(weather.location.localtime) }}</p>
+        </div>
+        <div class="weather-icon-large">
+          <img [src]="'https:' + weather.current.condition.icon" [alt]="weather.current.condition.text" />
+          <p class="condition-text">{{ weather.current.condition.text }}</p>
+        </div>
+        <button
+          (click)="toggleFavorite()"
+          [class.favorite]="isFavorite()"
+          class="favorite-btn-large"
+        >
+          {{ isFavorite() ? '★ У вибраних' : '☆ Додати до вибраних' }}
+        </button>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item highlight">
+          <span class="label">Температура:</span>
+          <span class="value large">{{ weather.current.temp_c }}°C</span>
+          <span class="sub-value">Відчувається як {{ weather.current.feelslike_c }}°C</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Опади:</span>
+          <span class="value">{{ weather.current.precip_mm }} мм</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Швидкість вітру:</span>
+          <span class="value">{{ weather.current.wind_kph }} км/год ({{ weather.current.wind_dir }})</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Вологість:</span>
+          <span class="value">{{ weather.current.humidity }}%</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">УФ індекс:</span>
+          <span class="value">{{ weather.current.uv }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Координати:</span>
+          <span class="value">{{ weather.location.lat }}°N, {{ weather.location.lon }}°E</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

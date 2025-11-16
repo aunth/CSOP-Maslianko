@@ -8,7 +8,9 @@
     "lab2": "tsx lab2/src/1_1.ts",
     "lab3": "cd lab3 && npm start",
     "lab3:build": "cd lab3 && npm run build",
-    "lab4": "cd lab4 && npm start"
+    "lab4": "cd lab4 && npm start",
+    "lab5": "cd lab5 && npm start",
+    "lab6": "cd lab6 && npm start"
   },
   "keywords": [],
   "author": "",

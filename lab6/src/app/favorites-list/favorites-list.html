@@ -1,0 +1,52 @@
+<div class="favorites-container">
+  <div class="header">
+    <h2>Вибрані міста</h2>
+    <button
+      *ngIf="favorites.length > 0"
+      (click)="clearAll()"
+      class="clear-btn"
+    >
+      Очистити все
+    </button>
+  </div>
+
+  <div *ngIf="favorites.length === 0" class="empty-state">
+    <p>Немає вибраних міст</p>
+    <p class="hint">Натисніть на зірочку в таблиці, щоб додати місто до вибраних</p>
+  </div>
+
+  <div *ngIf="favorites.length > 0" class="favorites-grid">
+    <div *ngFor="let weather of favorites" class="favorite-card">
+      <div class="card-header">
+        <div class="weather-icon-container">
+          <img
+            [src]="'https:' + weather.current.condition.icon"
+            [alt]="weather.current.condition.text"
+            class="weather-icon"
+          />
+        </div>
+        <button
+          (click)="removeFavorite(weather)"
+          class="remove-btn"
+          title="Видалити з вибраних"
+        >
+          ×
+        </button>
+      </div>
+      <div class="card-body">
+        <h3>{{ weather.location.name }}</h3>
+        <p class="region">{{ weather.location.region }}</p>
+        <div class="temperature">{{ weather.current.temp_c }}°C</div>
+        <p class="condition">{{ weather.current.condition.text }}</p>
+        <div class="details">
+          <span class="detail-item">💧 {{ weather.current.precip_mm }} мм</span>
+          <span class="detail-item">💨 {{ weather.current.wind_kph }} км/год</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="favorites.length > 0" class="stats">
+    <p>Всього вибрано: <strong>{{ favorites.length }}</strong></p>
+  </div>
+</div>

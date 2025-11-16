@@ -1,0 +1,35 @@
+<div class="image-viewer-container">
+  <h2>Перегляд зображень</h2>
+
+  <div class="input-section">
+    <label for="imagePath">Введіть абсолютний шлях до зображення:</label>
+    <div class="input-group">
+      <input
+        id="imagePath"
+        type="text"
+        [(ngModel)]="imagePath"
+        placeholder="Наприклад: https://example.com/image.jpg або /path/to/image.png"
+        class="path-input"
+      />
+      <button (click)="clearImage()" class="clear-btn">Очистити</button>
+    </div>
+  </div>
+
+  <div class="image-section" *ngIf="imagePath">
+    <div *ngIf="imageError" class="error-message">
+      {{ imageError }}
+    </div>
+    <img
+      [src]="imagePath"
+      (error)="onImageError()"
+      (load)="onImageLoad()"
+      [alt]="'Зображення: ' + imagePath"
+      class="displayed-image"
+      [class.hidden]="!!imageError"
+    />
+  </div>
+
+  <div *ngIf="!imagePath" class="placeholder">
+    <p>Введіть шлях до зображення вище, щоб побачити його тут.</p>
+  </div>
+</div>

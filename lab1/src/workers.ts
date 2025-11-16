@@ -88,7 +88,7 @@ export function logInitials(fn: WorkerFilterFunction = getAllWorkers): void {
 	const workers = fn();
 	workers.forEach(worker => {
 		if (worker.category == Category.Developer) {
-			console.log(`${worker.name[0]}. ${worker.surName[0]}.`);
+			console.log(`${worker.name}. ${worker.surName}.`);
 		}
 	});
 }

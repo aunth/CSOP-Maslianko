@@ -1,0 +1,25 @@
+<div class="app-container">
+  <h1>Практична робота №4 - Варіант 3</h1>
+  <p class="description">Введіть масив чисел через кому. Дочірній компонент виведе різницю між максимальним та мінімальним елементом.</p>
+
+  <div class="input-section">
+    <label for="arrayInput">Введіть числа через кому:</label>
+    <input
+      id="arrayInput"
+      type="text"
+      [(ngModel)]="arrayInput"
+      (input)="onArrayInputChange()"
+      placeholder="Наприклад: 5, 10, 3, 8, 15, 2"
+      class="array-input"
+    />
+    <button (click)="clearArray()" class="clear-btn">Очистити</button>
+  </div>
+
+  <div class="info-section" *ngIf="numbers.length > 0">
+    <p><strong>Введений масив:</strong> [{{ numbers.join(', ') }}]</p>
+    <p><strong>Кількість елементів:</strong> {{ numbers.length }}</p>
+  </div>
+
+  <!-- Дочірній компонент -->
+  <app-array-difference [numbers]="numbers"></app-array-difference>
+</div>

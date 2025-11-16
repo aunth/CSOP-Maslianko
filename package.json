@@ -1,0 +1,20 @@
+{
+  "name": "csop-maslianko",
+  "version": "1.0.0",
+  "description": "CSOP Labs",
+  "type": "module",
+  "scripts": {
+    "lab1": "tsx lab1/src/1_1.ts",
+    "lab2": "tsx lab2/src/1_1.ts",
+    "lab3": "cd lab3 && npm start",
+    "lab3:build": "cd lab3 && npm run build",
+    "lab4": "cd lab4 && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular/cli": "^20.3.10",
+    "tsx": "^4.20.5"
+  }
+}

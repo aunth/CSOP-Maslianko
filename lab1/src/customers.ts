@@ -12,7 +12,7 @@ export function createCustomer(name: string, age?: number, city?: string): void 
 
 	console.log(`Customer name: ${name.trim()}`);
 
-	if (age !== undefined) {
+	if (age) {
 		console.log(`Customer age: ${age}`);
 	}
 
@@ -24,6 +24,7 @@ export function createCustomer(name: string, age?: number, city?: string): void 
 export function createCustomerId(name: string, id: number): string {
 	return `${name}${id}`;
 }
+
 
 export const createCustomerIdArrow: IdGeneratorFunction = (name: string, id: number): string => {
 	return `${name}${id}`;

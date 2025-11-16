@@ -1,0 +1,29 @@
+<div class="array-difference-container">
+  <h3>Результат обчислення</h3>
+  
+  <div *ngIf="numbers && numbers.length > 0" class="result-section">
+    <div class="info-item">
+      <span class="label">Максимальний елемент:</span>
+      <span class="value">{{ getMax() }}</span>
+    </div>
+    
+    <div class="info-item">
+      <span class="label">Мінімальний елемент:</span>
+      <span class="value">{{ getMin() }}</span>
+    </div>
+    
+    <div class="info-item highlight">
+      <span class="label">Різниця (max - min):</span>
+      <span class="value">{{ getDifference() }}</span>
+    </div>
+    
+    <div class="array-display">
+      <span class="label">Введений масив:</span>
+      <span class="value">[{{ numbers.join(', ') }}]</span>
+    </div>
+  </div>
+  
+  <div *ngIf="!numbers || numbers.length === 0" class="empty-message">
+    <p>Введіть масив чисел у батьківському компоненті</p>
+  </div>
+</div>

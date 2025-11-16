@@ -8,11 +8,11 @@ export interface Worker {
 }
 
 export enum Category {
-	BussinessAnalyst,
-	Developer,
-	Designer,
-	QA,
-	ScrumMaster,
+	BussinessAnalyst = "BussinessAnalyst",
+	Developer = "Developer",
+	Designer = "Designer",
+	QA = "QA",
+	ScrumMaster = "ScrumMaster",
 }
 
 export type CustomerData = {
